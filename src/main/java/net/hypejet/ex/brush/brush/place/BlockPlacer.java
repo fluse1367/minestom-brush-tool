@@ -22,9 +22,9 @@ public interface BlockPlacer {
                     Optional.ofNullable(root.getCompound("block")).flatMap(BlockSerializer::deserialize).map(FillPlacer::new);
             case "replace" -> {
                 var block = Optional.ofNullable(root.getCompound("block")).flatMap(BlockSerializer::deserialize).orElse(null);
-                var replace = Optional.ofNullable(root.getCompound("replace")).flatMap(BlockSerializer::deserialize).orElse(null);
-                if (block == null || replace == null) yield Optional.empty();
-                yield Optional.of(new ReplacePlacer(block, replace));
+                var replacement = Optional.ofNullable(root.getCompound("replacement")).flatMap(BlockSerializer::deserialize).orElse(null);
+                if (block == null || replacement == null) yield Optional.empty();
+                yield Optional.of(new ReplacePlacer(block, replacement));
             }
             default -> Optional.empty();
         };

@@ -21,11 +21,11 @@ import static net.kyori.adventure.text.format.NamedTextColor.GRAY;
 
 public class ReplacePlacer extends FillPlacer {
 
-    private final Block replace;
+    private final Block replacement;
 
-    public ReplacePlacer(Block block, Block replace) {
+    public ReplacePlacer(Block block, Block replacement) {
         super(block);
-        this.replace = replace;
+        this.replacement = replacement;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ReplacePlacer extends FillPlacer {
         if (!block.compare(b, Comparator.ID)) return;
         if (!block.compare(b, Comparator.STATE)) return;
 
-        batch.setBlock(posRelative, replace);
+        batch.setBlock(posRelative, replacement);
     }
 
 
@@ -43,7 +43,7 @@ public class ReplacePlacer extends FillPlacer {
         return new NBTCompound(Map.of(
                 "type", new NBTString("replace"),
                 "block", BlockSerializer.serialize(block),
-                "replace", BlockSerializer.serialize(replace)
+                "replacement", BlockSerializer.serialize(replacement)
         ));
     }
 
@@ -51,7 +51,7 @@ public class ReplacePlacer extends FillPlacer {
     public @NotNull Component name() {
         return translatable(block.registry().translationKey(), GOLD)
                 .append(text(" -> ", GRAY))
-                .append(translatable(replace.registry().translationKey(), GOLD));
+                .append(translatable(replacement.registry().translationKey(), GOLD));
     }
 
     @Override
@@ -59,6 +59,6 @@ public class ReplacePlacer extends FillPlacer {
         return text("Replace ")
                 .append(Component.translatable(block.registry().translationKey()))
                 .append(text(" with "))
-                .append(Component.translatable(replace.registry().translationKey()));
+                .append(Component.translatable(replacement.registry().translationKey()));
     }
 }
