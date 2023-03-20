@@ -1,10 +1,10 @@
-package net.hypejet.ex.brush.brush;
+package net.hypejet.ex.brush.brush.shape;
 
 import net.minestom.server.coordinate.Vec;
 
 import java.util.stream.Stream;
 
-public class CubicSelector implements Selector {
+public class CubicBlockShapeGenerator implements BlockShapeGenerator {
     @Override
     public Stream<Vec> select(int radius) {
         var b = Stream.<Vec>builder();
