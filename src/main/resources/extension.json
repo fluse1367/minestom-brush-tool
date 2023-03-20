@@ -1,0 +1,5 @@
+{
+  "entrypoint": "net.hypejet.ex.brush.BrushExtension",
+  "name": "BrushExtension",
+  "version": "1.0.0"
+}

@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.Minestom.Minestom:Minestom:067227421f'
+    implementation 'eu.software4you.ulib-snapshot:ulib-loader:3.0.0-SNAPSHOT'
+    compileOnly 'eu.software4you.ulib-snapshot:ulib-core:3.0.0-SNAPSHOT'
+}
